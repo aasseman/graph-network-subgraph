@@ -349,6 +349,7 @@ export function handleAllocationCreated(event: AllocationCreated): void {
   allocation.createdAtEpoch = event.params.epoch.toI32()
   allocation.createdAtBlockHash = event.block.hash
   allocation.createdAtBlockNumber = event.block.number.toI32()
+  allocation.createdAtLogIndex = event.logIndex.toI32()
   allocation.queryFeesCollected = BigInt.fromI32(0)
   allocation.queryFeeRebates = BigInt.fromI32(0)
   allocation.curatorRewards = BigInt.fromI32(0)
@@ -478,6 +479,7 @@ export function handleAllocationClosed(event: AllocationClosed): void {
   allocation.closedAtEpoch = event.params.epoch.toI32()
   allocation.closedAtBlockHash = event.block.hash
   allocation.closedAtBlockNumber = event.block.number.toI32()
+  allocation.closedAtLogIndex = event.logIndex.toI32()
   allocation.effectiveAllocation = event.params.effectiveAllocation
   allocation.status = 'Closed'
   allocation.closedAt = event.block.timestamp.toI32()
